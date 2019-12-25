@@ -22,3 +22,15 @@ after_success:
     - docker push ravibatakurki/multicontainer-nginx
     - docker push ravibatakurki/multicontainer-server
     - docker push ravibatakurki/multicontainer-worker
+
+deploy:
+    provider: elasticbeanstalk
+    region:  "ap-south-1"
+    app: "multicontainer-app"
+    env: "MulticontainerApp-env"
+    bucket_name: elasticbeanstalk-ap-south-1-287143684759
+    bucker_path: "multicontainer-path"
+    on: 
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: "$AWS_SECRET_KEY"
