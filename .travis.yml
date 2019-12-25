@@ -17,7 +17,7 @@ after_success:
     # Login to Docker
     - echo "$DOCKER_PWD" | docker login -u "$DOCKER_ID" --password-stdin
 
-    # Push images into Docker Hub
+    # Push images into Docker Hub --
     - docker push ravibatakurki/multicontainer-client
     - docker push ravibatakurki/multicontainer-nginx
     - docker push ravibatakurki/multicontainer-server
